@@ -251,6 +251,15 @@ namespace ConsoleApp1
             //Console.WriteLine("Peek at next item to destack: \"{0}\"", numbers.Peek());
             //Console.WriteLine("Popping \"{0}\"", numbers.Pop());
             #endregion
+            #region LINQ
+            ////ANDMEKOGUM
+            //int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+            ////LOOME PÄRINGU
+            //var evenNumQuery = (from num in numbers
+            //                    where (num % 2) == 0
+            //                    select num).ToList();
+            #endregion
         }
     }
 }
