@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            #region List
             ////ESIMENE LÄHENEMINE
             //var cars = new List<string>();
             //var car1 = "BMW";
@@ -92,6 +93,9 @@ namespace ConsoleApp1
             //    Console.WriteLine(item.Name + " " + item.Age);
             //}
 
+            #endregion
+            #region Dictionary
+
             ////DICTIONARY
             //var openWith = new Dictionary<string, string>();
             //openWith.Add("txt", "notepad.exe");
@@ -132,11 +136,105 @@ namespace ConsoleApp1
             //    Console.WriteLine("Key = \"tif\" is not found");
             //}
 
+            ////KONTROLLIME VÕTME "ht" OLEMASOLU NING TEME, KUI EI OLE
             //if (!openWith.ContainsKey("ht"))
             //{
             //    openWith.Add("ht", "hyperterm.exe");
             //    Console.WriteLine("Valuje added for key ht: {0}", openWith["ht"]);
             //}
+
+            ////KÜSIME VÄÄRTUSEID KASUTADES foreach
+            //var openWith = new Dictionary<string, string>();
+            //openWith.Add("txt", "notepad.exe");
+            //openWith.Add("bmp", "paint.exe");
+            //openWith.Add("jpg", "paint.exe");
+            //openWith.Add("rtf", "wordpad.exe");
+
+            //openWith["rtf"] = "winword.exe";
+            //openWith["doc"] = "winword.exe";
+
+            //foreach (KeyValuePair<string, string> item in openWith)
+            //{
+            //    Console.WriteLine("Key = {0}, Value = {1}", item.Key, item.Value);
+            //}
+
+            ////Küsime väärtused
+            //Dictionary<string, string>.ValueCollection valueCollection = openWith.Values;
+
+            //foreach (string item in valueCollection)
+            //{
+            //    Console.WriteLine("Value = {0}", item);
+            //}
+
+            ////Küsime võtmed
+            //Dictionary<string, string>.KeyCollection keyCollection = openWith.Keys;
+
+            //foreach (string item in keyCollection)
+            //{
+            //    Console.WriteLine("Key = {0}", item);
+            //}
+
+            ////Kustutame võtme/väärtuse
+            //openWith.Remove("doc");
+            //if (!openWith.ContainsKey("doc"))
+            //{
+            //    Console.WriteLine("Key \"doc\" is not found");
+            //}
+            #endregion
+            #region Queue
+            //LOOME queue(järjekord)
+            Queue<string> numbers = new Queue<string>();
+            numbers.Enqueue("one");
+            numbers.Enqueue("two");
+            numbers.Enqueue("three");
+            numbers.Enqueue("four");
+            numbers.Enqueue("five");
+
+            //KÜSIMUSE ELEMENDID JÄRJEKORRAST
+            foreach (var number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+
+            //KUSTUTAME ELEMENDID JÄRJEKORRAST
+            Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
+
+            //PIILUME (EI VÕTA VÄLJA) JÄRGMIST ELEMENTI
+            Console.WriteLine("Peek at next item to dequeue {0}", numbers.Peek());
+
+            //VÕTAME VÄLJA JÄRGMISE
+            Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
+
+            //TEEME KOOPIA JÄRJEKORRAST
+            Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
+            Console.WriteLine("\nContents of the first Copy");
+            foreach (string number in queueCopy)
+            {
+                Console.WriteLine(number);
+            }
+
+            //QUEUE -> ARRAY
+
+            string[] array = new string[numbers.Count * 2];
+            numbers.CopyTo(array, numbers.Count);
+
+            //ARRAY -> QUEUE
+
+            Queue<string> queueCopy2 = new Queue<string>(array);
+            Console.WriteLine("\nContents of the second Copy, with duplicates and nulls:");
+            foreach (string number in queueCopy2)
+            {
+                Console.WriteLine(number);
+            }
+
+            //KONTROLLIME ELEMENDI OLEMASOLU JÄRJEKORRAS
+            Console.WriteLine("\nqueueCopy contains \"four\" = {0}", queueCopy.Contains("four"));
+
+            //JÄRJEKORRAS TÜHJENDAMINE
+            queueCopy.Clear();
+            Console.WriteLine("\nqueueCopy count is {0}", queueCopy.Count);
+
+            #endregion
         }
     }
 }
