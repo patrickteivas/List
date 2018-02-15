@@ -95,7 +95,6 @@ namespace ConsoleApp1
 
             #endregion
             #region Dictionary
-
             ////DICTIONARY
             //var openWith = new Dictionary<string, string>();
             //openWith.Add("txt", "notepad.exe");
@@ -181,59 +180,76 @@ namespace ConsoleApp1
             //    Console.WriteLine("Key \"doc\" is not found");
             //}
             #endregion
-            #region Queue
-            //LOOME queue(järjekord)
-            Queue<string> numbers = new Queue<string>();
-            numbers.Enqueue("one");
-            numbers.Enqueue("two");
-            numbers.Enqueue("three");
-            numbers.Enqueue("four");
-            numbers.Enqueue("five");
+            #region Queue = First in first out
+            ////LOOME queue(järjekord)
+            //Queue<string> numbers = new Queue<string>();
+            //numbers.Enqueue("one");
+            //numbers.Enqueue("two");
+            //numbers.Enqueue("three");
+            //numbers.Enqueue("four");
+            //numbers.Enqueue("five");
 
-            //KÜSIMUSE ELEMENDID JÄRJEKORRAST
-            foreach (var number in numbers)
-            {
-                Console.WriteLine(number);
-            }
+            ////KÜSIMUSE ELEMENDID JÄRJEKORRAST
+            //foreach (var number in numbers)
+            //{
+            //    Console.WriteLine(number);
+            //}
 
-            //KUSTUTAME ELEMENDID JÄRJEKORRAST
-            Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
+            ////KUSTUTAME ELEMENDID JÄRJEKORRAST
+            //Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
 
-            //PIILUME (EI VÕTA VÄLJA) JÄRGMIST ELEMENTI
-            Console.WriteLine("Peek at next item to dequeue {0}", numbers.Peek());
+            ////PIILUME (EI VÕTA VÄLJA) JÄRGMIST ELEMENTI
+            //Console.WriteLine("Peek at next item to dequeue {0}", numbers.Peek());
 
-            //VÕTAME VÄLJA JÄRGMISE
-            Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
+            ////VÕTAME VÄLJA JÄRGMISE
+            //Console.WriteLine("Dequeueing \"{0}\"", numbers.Dequeue());
 
-            //TEEME KOOPIA JÄRJEKORRAST
-            Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
-            Console.WriteLine("\nContents of the first Copy");
-            foreach (string number in queueCopy)
-            {
-                Console.WriteLine(number);
-            }
+            ////TEEME KOOPIA JÄRJEKORRAST
+            //Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
+            //Console.WriteLine("\nContents of the first Copy");
+            //foreach (string number in queueCopy)
+            //{
+            //    Console.WriteLine(number);
+            //}
 
-            //QUEUE -> ARRAY
+            ////QUEUE -> ARRAY
 
-            string[] array = new string[numbers.Count * 2];
-            numbers.CopyTo(array, numbers.Count);
+            //string[] array = new string[numbers.Count * 2];
+            //numbers.CopyTo(array, numbers.Count);
 
-            //ARRAY -> QUEUE
+            ////ARRAY -> QUEUE
 
-            Queue<string> queueCopy2 = new Queue<string>(array);
-            Console.WriteLine("\nContents of the second Copy, with duplicates and nulls:");
-            foreach (string number in queueCopy2)
-            {
-                Console.WriteLine(number);
-            }
+            //Queue<string> queueCopy2 = new Queue<string>(array);
+            //Console.WriteLine("\nContents of the second Copy, with duplicates and nulls:");
+            //foreach (string number in queueCopy2)
+            //{
+            //    Console.WriteLine(number);
+            //}
 
-            //KONTROLLIME ELEMENDI OLEMASOLU JÄRJEKORRAS
-            Console.WriteLine("\nqueueCopy contains \"four\" = {0}", queueCopy.Contains("four"));
+            ////KONTROLLIME ELEMENDI OLEMASOLU JÄRJEKORRAS
+            //Console.WriteLine("\nqueueCopy contains \"four\" = {0}", queueCopy.Contains("four"));
 
-            //JÄRJEKORRAS TÜHJENDAMINE
-            queueCopy.Clear();
-            Console.WriteLine("\nqueueCopy count is {0}", queueCopy.Count);
+            ////JÄRJEKORRAS TÜHJENDAMINE
+            //queueCopy.Clear();
+            //Console.WriteLine("\nqueueCopy count is {0}", queueCopy.Count);
+            #endregion
+            #region Stack = Last in first out
+            //Console.WriteLine("Queue:");
+            //Stack<string> numbers = new Stack<string>();
+            //numbers.Push("one");
+            //numbers.Push("two");
+            //numbers.Push("three");
+            //numbers.Push("four");
+            //numbers.Push("five");
 
+            //foreach (string number in numbers)
+            //{
+            //    Console.WriteLine(number);
+            //}
+
+            //Console.WriteLine("\nPopping \"{0}\"", numbers.Pop());
+            //Console.WriteLine("Peek at next item to destack: \"{0}\"", numbers.Peek());
+            //Console.WriteLine("Popping \"{0}\"", numbers.Pop());
             #endregion
         }
     }
