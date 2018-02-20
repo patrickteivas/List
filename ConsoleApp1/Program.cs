@@ -259,7 +259,88 @@ namespace ConsoleApp1
             //var evenNumQuery = (from num in numbers
             //                    where (num % 2) == 0
             //                    select num).ToList();
+
+            //var humans1 = new List<Human>
+            //{
+            //    new Human(){Name = "Kalle", Age = 30 },
+            //    new Human(){Name = "Malle", Age = 25 },
+            //    new Human(){Name = "Mari", Age = 40 },
+            //    new Human(){Name = "Elmar", Age = 15 },
+            //    new Human(){Name = "Juku", Age = 20 }
+            //};
+
+            ////SUUREMAD KUI 20 LÄHEVAD LISTI NING JARJESTAME TULEMUSED
+            //var query = (from element in humans1
+            //             orderby element.Age ascending
+            //             where element.Age > 20
+            //             select element).ToList();
+
+            //foreach (var item in query)
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Age);
+            //}
+
+            //int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+            //var a = numbers.Contains(7);
+
+            //var b = false;
+            //foreach (var item in numbers)
+            //{
+            //    if (item == 6)
+            //        b = true;
+            //}
+            //Console.WriteLine(a);
+            //Console.WriteLine(b);
+
+
+            ////KERGEMAD FUNKTSIOONID
+            //int[] numbers = new int[6] { 1, 2, 3, 4, 5, 6 };
+
+            //var a = numbers.ElementAtOrDefault(15);
+            //var b = numbers.FirstOrDefault();
+            //var c = numbers.Take(3).ToList();
+            //var d = numbers.Average();
+            //var e = numbers.Max();
+            //var f = numbers.Min();
+
+            //Console.WriteLine("ElementArOrDefault " + a);
+            //Console.WriteLine("FirstOrDefault " + b);
+            //Console.WriteLine("Take 3");
+            //foreach (var item in c)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine("Average " + d);
+            //Console.WriteLine("Max " + e);
+            //Console.WriteLine("Min " + f);
+
+
+            ////OTSIME MINGI ELEMENDI JÄRGI
+            //var g = humans1.Where(x => x.Name == "Kalle").FirstOrDefault();
+            //var h = humans1.Where(x => x.Age == 40).ToList();
+            //var i = humans1.Where(x => x.Name.StartsWith("a"));
+            //var j = humans1.Where(x => x.Name.StartsWith("M"));
+            //foreach (var item in h)
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Age);
+            //}
+            //Console.WriteLine(g);
+
+            //foreach (var item in i)
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Age);
+            //}
+
+            //foreach (var item in j)
+            //{
+            //    Console.WriteLine(item.Name + " " + item.Age);
+            //}
+
+            //ISESEISEV
+
             #endregion
         }
+
     }
 }
