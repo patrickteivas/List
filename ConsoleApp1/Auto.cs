@@ -8,5 +8,9 @@ namespace ConsoleApp1
 {
     class Auto
     {
+        public int KW { get; set; }
+        public string Tootja { get; set; }
+        public string Mudel { get; set; }
+        public string Värv { get; set; }
     }
 }

@@ -319,7 +319,7 @@ namespace ConsoleApp1
             ////OTSIME MINGI ELEMENDI JÄRGI
             //var g = humans1.Where(x => x.Name == "Kalle").FirstOrDefault();
             //var h = humans1.Where(x => x.Age == 40).ToList();
-            //var i = humans1.Where(x => x.Name.StartsWith("a"));
+            //var i = humans1.Where(x => x.Name.Contains("a"));
             //var j = humans1.Where(x => x.Name.StartsWith("M"));
             //foreach (var item in h)
             //{
@@ -338,7 +338,65 @@ namespace ConsoleApp1
             //}
 
             //ISESEISEV
+            var Auto1 = new List<Auto>
+            {
+                new Auto(){KW = 145, Tootja = "Ford", Mudel = "Galaxy", Värv = "Punane" },
+                new Auto(){KW = 132, Tootja = "Ford", Mudel = "Edge", Värv = "Must" },
+                new Auto(){KW = 83, Tootja = "Ford", Mudel = "Focus", Värv = "Hall" },
+                new Auto(){KW = 100, Tootja = "Audi", Mudel = "A1", Värv = "Valge" },
+                new Auto(){KW = 353, Tootja = "Nissan", Mudel = "GT-R", Värv = "Must" },
+                new Auto(){KW = 104, Tootja = "Kia", Mudel = "Carens", Värv = "Roheline" },
+                new Auto(){KW = 63, Tootja = "Kia", Mudel = "Rio", Värv = "Valge" },
+                new Auto(){KW = 130, Tootja = "Kia", Mudel = "Optima", Värv = "Pruun" },
+                new Auto(){KW = 81, Tootja = "Kia", Mudel = "Soul", Värv = "Punane" },
+                new Auto(){KW = 136, Tootja = "Jeep", Mudel = "Cherokee", Värv = "Must" }
+            };
 
+            Console.WriteLine("Kilovattides järjestuses");
+            var query = (from element in Auto1
+                         orderby element.KW ascending
+                         select element).ToList();
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+            }
+
+            Console.WriteLine("\nTootja nimes \"o\" täht");
+            var query1 = Auto1.Where(x => x.Tootja.Contains("o"));
+
+            foreach (var item in query1)
+            {
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+            }
+
+            Console.WriteLine("\nTootja nimes \"e\" täht");
+            var query2 = Auto1.Where(x => x.Tootja.Contains("e"));
+
+            foreach (var item in query2)
+            {
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+            }
+
+            Console.WriteLine("\nMudel rohkem, kui 4 tähest");
+            var query3 = (from element in Auto1
+                          where element.Mudel.Length > 4
+                          select element).ToList();
+
+            foreach (var item in query3)
+            {
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+            }
+
+            Console.WriteLine("\nKõige võimsam ja kõige nõrgem auto");
+            var query4 = (from element in Auto1
+                          where element.Tootja.Contains("o")
+                          select element).ToList();
+
+            foreach (var item in query1)
+            {
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+            }
             #endregion
         }
 
