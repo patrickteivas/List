@@ -352,51 +352,43 @@ namespace ConsoleApp1
                 new Auto(){KW = 136, Tootja = "Jeep", Mudel = "Cherokee", Värv = "Must" }
             };
 
-            Console.WriteLine("Kilovattides järjestuses");
-            var query = (from element in Auto1
+            Console.WriteLine("Kilovattide järjestuses");
+            var query1 = (from element in Auto1
                          orderby element.KW ascending
                          select element).ToList();
-
-            foreach (var item in query)
+            foreach (var item in query1)
             {
-                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
             Console.WriteLine("\nTootja nimes \"o\" täht");
-            var query1 = Auto1.Where(x => x.Tootja.Contains("o"));
-
-            foreach (var item in query1)
+            var query2 = Auto1.Where(x => x.Tootja.Contains("o"));
+            foreach (var item in query2)
             {
-                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
             Console.WriteLine("\nTootja nimes \"e\" täht");
-            var query2 = Auto1.Where(x => x.Tootja.Contains("e"));
-
-            foreach (var item in query2)
-            {
-                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
-            }
-
-            Console.WriteLine("\nMudel rohkem, kui 4 tähest");
-            var query3 = (from element in Auto1
-                          where element.Mudel.Length > 4
-                          select element).ToList();
-
+            var query3 = Auto1.Where(x => x.Tootja.Contains("e"));
             foreach (var item in query3)
             {
-                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
-            Console.WriteLine("\nKõige võimsam ja kõige nõrgem auto");
+            Console.WriteLine("\nAuto mudel koosneb rohkem, kui 4 tähest");
             var query4 = (from element in Auto1
-                          where element.Tootja.Contains("o")
-                          select element).ToList();
-
-            foreach (var item in query1)
+                         where element.Mudel.Length > 4
+                         select element).ToList();
+            foreach (var item in query4)
             {
-                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW);
+                Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
+
+            var query5 = Auto1.OrderBy(x => x.KW).Last();
+            Console.WriteLine("\nKõige võimsam auto: " + query5.Tootja + " " + query5.Mudel + " " + query5.KW + "KW");
+
+            var query6 = Auto1.OrderBy(x => x.KW).First();
+            Console.WriteLine("Kõige nõrgem auto: " + query6.Tootja + " " + query6.Mudel + " " + query6.KW + "KW");
             #endregion
         }
 
