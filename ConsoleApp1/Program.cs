@@ -352,7 +352,7 @@ namespace ConsoleApp1
                 new Auto(){KW = 136, Tootja = "Jeep", Mudel = "Cherokee", Värv = "Must" }
             };
 
-            Console.WriteLine("Kilovattide järjestuses");
+            Console.WriteLine("Kilovattide järjestuses:");
             var query1 = (from element in Auto1
                          orderby element.KW ascending
                          select element).ToList();
@@ -361,21 +361,21 @@ namespace ConsoleApp1
                 Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
-            Console.WriteLine("\nTootja nimes \"o\" täht");
+            Console.WriteLine("\nTootja nimes \"o\" täht:");
             var query2 = Auto1.Where(x => x.Tootja.Contains("o"));
             foreach (var item in query2)
             {
                 Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
-            Console.WriteLine("\nTootja nimes \"e\" täht");
+            Console.WriteLine("\nTootja nimes \"e\" täht:");
             var query3 = Auto1.Where(x => x.Tootja.Contains("e"));
             foreach (var item in query3)
             {
                 Console.WriteLine(item.Tootja + " " + item.Mudel + " " + item.KW + "KW");
             }
 
-            Console.WriteLine("\nAuto mudel koosneb rohkem, kui 4 tähest");
+            Console.WriteLine("\nAuto mudel koosneb rohkem, kui 4 tähest:");
             var query4 = (from element in Auto1
                          where element.Mudel.Length > 4
                          select element).ToList();
