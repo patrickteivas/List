@@ -391,26 +391,66 @@ namespace ConsoleApp1
             //Console.WriteLine("Kõige nõrgem auto: " + query6.Tootja + " " + query6.Mudel + " " + query6.KW + "KW");
             #endregion
             #region Grupeerimine
-            var humans1 = new List<Human>
+            var Humans1 = new List<Human>
             {
                 new Human(){Name = "Kalle", Age = 30 },
-                new Human(){Name = "Malle", Age = 25 },
+                new Human(){Name = "Malle", Age = 40 },
                 new Human(){Name = "Mari", Age = 40 },
                 new Human(){Name = "Elmar", Age = 15 },
-                new Human(){Name = "Juku", Age = 20 }
+                new Human(){Name = "Juku", Age = 20 },
+                new Human(){Name = "Mait", Age = 40 },
+                new Human(){Name = "Kerman", Age = 15 },
+                new Human(){Name = "Jah", Age = 40 },
+                new Human(){Name = "Ei", Age = 15 },
+                new Human(){Name = "Kass", Age = 40 },
+                new Human(){Name = "Koer", Age = 15 }
             };
 
-            int[] numbers = new int[8] { 0, 1, 2, 3, 4, 5, 6, 5 };
+            int[] Numbers = new int[8] { 0, 1, 2, 3, 4, 5, 6, 5 };
 
-            //var grupid = from Human in humans1
-            //             group Human by Human.Age == 40
+            var Groups = from Human in Humans1
+                         group Human by Human.Age into newGroup
+                         select newGroup;
 
-            foreach (var item in grupid)
+            //foreach (var Group in Groups)
+            //{
+            //    Console.WriteLine("Uus grupp " + Group.Key);
+            //    foreach (var item in Group)
+            //    {
+            //        Console.WriteLine(item.Age + " " + item.Name);
+            //    }
+            //}
+
+            //var FirstLetterGroup =
+            //    from human in Humans1
+            //    group human by human.Name[0];
+
+            //ISESEISEV
+            var FirstLetterGroup =
+                (from human in Humans1
+                group human by human.Name.Length).OrderByDescending(x => x.Key);
+            ///
+
+            foreach (var HumanGroup in FirstLetterGroup)
             {
-                Console.WriteLine(item.);
+                Console.WriteLine("\nKey: " + HumanGroup.Key);
+                foreach (var human in HumanGroup)
+                {
+                    Console.WriteLine(human.Name + " " + human.Age );
+                }
+            }
+
+            var Humans2 = new List<Human>();
+
+            foreach (var item in FirstLetterGroup)
+            {
+                if (item.Key % 2 != 0)
+                {
+                    item.Add(Humans2);
+                }
             }
             #endregion
         }
-
+        
     }
 }
